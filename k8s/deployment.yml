@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: try-spring-oauth2
+  labels:
+    app: try-spring-oauth2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: try-spring-oauth2
+  template:
+    metadata:
+      name: try-spring-oauth2
+      labels:
+        app: try-spring-oauth2
+    spec:
+      imagePullSecrets:
+        - name: ghcr-pull
+      containers:
+        - name: try-spring-oauth2
+          image: ghcr.io/itzg/try-spring-oauth2
+          imagePullPolicy: Always
+          envFrom:
+            - secretRef:
+                name: try-spring-oauth2
+      restartPolicy: Always
+      

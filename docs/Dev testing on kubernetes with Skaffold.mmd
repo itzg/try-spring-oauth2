@@ -1,0 +1,204 @@
+[Scia Reto](https://sciareto.org) mind map   
+> __version__=`1.1`,showJumps=`true`
+---
+
+# Dev testing on kubernetes with Skaffold
+
+## Skaffold Docs
+- LINK
+<pre>https://skaffold.dev/docs/</pre>
+
+## Create OAuth2 credentials
+> leftSide=`true`,topicLinkUID=`18D08B693C1A`
+
+
+### Official example form Spring Security docs
+- LINK
+<pre>https://docs.spring.io/spring-security/reference/servlet/oauth2/login/core.html#oauth2login-sample-boot</pre>
+
+### Spring Security redirect URI will have path<br/>/login/oauth2/code/google
+
+#### http://localhost:8080/login/oauth2/code/google
+
+### Add redirect URI entry for final hostname
+> topicLinkUID=`18D091AA561A`
+
+
+## Test locally first
+> leftSide=`true`
+
+
+### Run as regular Spring Boot run config
+
+#### Add oauth2 client properties
+> mmd.image=`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`
+
+
+##### oauth2\.google\.client\-id<br/>oauth2\.google\.client\-secret
+
+### Access page
+> leftSide=`true`
+
+- LINK
+<pre>http://localhost:8080</pre>
+
+## Create skaffold file
+> leftSide=`true`
+
+
+### apiVersion: skaffold/v3
+
+#### Compatible with Cloud Code plugin vs v4 beta versions
+
+### Example
+- NOTE
+<pre>apiVersion: skaffold/v3
+kind: Config
+metadata:
+  name: try-spring-oauth2
+build:
+  artifacts:
+    - image: ghcr.io/itzg/try-spring-oauth2
+      custom:
+        buildCommand: ./gradlew pushSimpleBootImage
+        dependencies:
+          paths:
+            - build.gradle
+            - src/main/java
+            - src/main/resources
+profiles:
+  - name: windows
+    build:
+      artifacts:
+        - image: ghcr.io/itzg/try-spring-oauth2
+          custom:
+            # override this since Windows needs backslash'y paths
+            buildCommand: .\gradlew pushSimpleBootImage
+manifests:
+  rawYaml:
+    - k8s/deployment.yml
+    - k8s/service.yml
+#    - k8s/ingress.yml
+</pre>
+
+#### Change \`image\` in both build and profiles
+
+##### needs to match
+- TOPIC
+<pre>18D091C6767A</pre>
+
+#### Ingress is purposely commented out from manifests listing
+
+##### Deploy manually after confirming successful deploy
+
+## Create secret for OAuth2 credentials
+> leftSide=`true`
+
+
+### needs
+- TOPIC
+<pre>18D08B693C1A</pre>
+
+### env file
+- NOTE
+<pre>OAUTH2_GOOGLE_CLIENT_ID=...
+OAUTH2_GOOGLE_CLIENT_SECRET=...</pre>
+
+### create generic secret from env file
+> leftSide=`true`,topicLinkUID=`18D0909733CA`
+
+- NOTE
+<pre>kubectl create secret generic try-spring-oauth2 --from-env-file=.env</pre>
+
+## Build as Docker image
+> leftSide=`true`
+
+
+### Simple Boot Image Gradle Plugin
+> topicLinkUID=`18D0909CBE8A`
+
+
+#### Repo
+- LINK
+<pre>https://github.com/itzg/simple-boot-image-gradle-plugin</pre>
+
+#### Plugin portal
+> leftSide=`true`
+
+- LINK
+<pre>https://plugins.gradle.org/plugin/io.github.itzg.simple-boot-image</pre>
+
+### needs
+- TOPIC
+<pre>18D091D5483A</pre>
+
+### Add plugin
+> leftSide=`true`
+
+- NOTE
+<pre>id 'io.github.itzg.simple-boot-image' version '3.2.1'</pre>
+
+### Add extension config
+> leftSide=`true`
+
+- NOTE
+<pre>simpleBootImage {
+    baseImage = 'eclipse-temurin:21'
+    imageName = 'ghcr.io/itzg/try-spring-oauth2'
+}</pre>
+
+#### image name needs to match
+- TOPIC
+<pre>18D091C6767A</pre>
+
+## Cloud Code for IntelliJ
+> leftSide=`true`,topicLinkUID=`18D08B64EF4A`
+
+- LINK
+<pre>https://cloud.google.com/code/docs/intellij/overview</pre>
+
+## Create run config
+> leftSide=`true`
+
+
+### needs
+- TOPIC
+<pre>18D08B64EF4A</pre>
+
+### Config type is "Cloud Code: Kubernetes"
+
+### Set image registry<br/>ghcr\.io/itzg
+> leftSide=`true`,topicLinkUID=`18D091C6767A`
+
+
+### Run tab
+> leftSide=`true`
+
+
+#### Helpful to choose<br/>Deployment \> Switch context and deploy
+
+### Build / Deploy tab
+> leftSide=`true`
+
+
+#### Choose "windows" deployemnt profile if on Windows
+
+## Using Github Image Registry
+> topicLinkUID=`18D091D5483A`
+
+
+### Docker login with token that has packages write access
+- LINK
+<pre>https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pushing-container-images</pre>
+
+### Create image pull secret in kubernetes cluster
+- LINK
+<pre>https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry#pulling-container-images</pre>
+- NOTE
+<pre>kubectl create secret docker-registry ghcr-pull --docker-server=ghcr.io --docker-username=YOUR_GITHUB_USERNAME --docker-password='ghp_...'</pre>
+
+## Ingress setup
+
+### Ensure public hostname
+- TOPIC
+<pre>18D091AA561A</pre>

@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: try-spring-oauth2
+  labels:
+    acme.itzg.github.io/issuer: letsencrypt-prod
+spec:
+  ingressClassName: public
+  rules:
+    - host: try-spring-oauth2.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: try-spring-oauth2
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - try-spring-oauth2.example.com
+      secretName: try-spring-oauth2-tls

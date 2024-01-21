@@ -1,0 +1,27 @@
+apiVersion: skaffold/v3
+kind: Config
+metadata:
+  name: try-spring-oauth2
+build:
+  artifacts:
+    - image: ghcr.io/itzg/try-spring-oauth2
+      custom:
+        buildCommand: ./gradlew pushSimpleBootImage
+        dependencies:
+          paths:
+            - build.gradle
+            - src/main/java
+            - src/main/resources
+profiles:
+  - name: windows
+    build:
+      artifacts:
+        - image: ghcr.io/itzg/try-spring-oauth2
+          custom:
+            # override this since Windows needs backslash'y paths
+            buildCommand: .\gradlew pushSimpleBootImage
+manifests:
+  rawYaml:
+    - k8s/deployment.yml
+    - k8s/service.yml
+#    - k8s/ingress.yml
