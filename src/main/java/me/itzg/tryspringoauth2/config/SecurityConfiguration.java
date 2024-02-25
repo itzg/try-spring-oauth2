@@ -5,8 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
 @Configuration
 public class SecurityConfiguration {
     @Bean
@@ -18,7 +16,7 @@ public class SecurityConfiguration {
                 .anyRequest().permitAll()
             )
             // https://docs.spring.io/spring-security/reference/servlet/oauth2/index.html#oauth2-client-log-users-in
-            .oauth2Login(withDefaults());
+            .oauth2Login(configurer -> configurer.defaultSuccessUrl("/app/"));
 
         return http.build();
     }
